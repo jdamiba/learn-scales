@@ -21,7 +21,7 @@ const Logo = styled.p`
 export const HeaderLogo = () => {
   return (
     <HeaderWrapper>
-      <Logo>Learn Scales</Logo>
+      <Logo><a href="/">Learn Scales</a></Logo>
     </HeaderWrapper>
   );
 };

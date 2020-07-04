@@ -48,6 +48,492 @@ const Post = styled.div`
   }
 `;
 
+const scales = {
+  "modes": [
+    {
+      "name": "C Ionian",
+      "notes": "C	D	E	F	G	A	B	C"
+    },
+    {
+      "name": "C Dorian",
+      "notes": "C	D	E♭	F	G	A	B♭	C"
+    },
+    {
+      "name": "C Dorian",
+      "notes": "C	D♭	E♭	F	G	A♭	B♭	C"
+    },
+    {
+      "name": "C Phrygian",
+      "notes": "C	D♭	E♭	F	G	A♭	B♭	C"
+    },
+    {
+      "name": "C Lydian",
+      "notes": "C	D	E	F♯	G	A	B	C"
+    },
+    {
+      "name": "C Mixolydian",
+      "notes": "C	D	E	F	G	A	B♭	C"
+    },
+    {
+      "name": "C Aeolian",
+      "notes": "C	D	E♭	F	G	A♭	B♭	C"
+    },
+    {
+      "name": "C Locrian",
+      "notes": "C	D♭	E♭	F	G♭	A♭	B♭	C"
+    },
+    {
+      "name": "C♯ Ionian",
+      "notes": "C♯	D♯	E♯	F♯	G♯	A♯	B♯	C♯"
+    },
+    {
+      "name": "C♯ Dorian",
+      "notes": "C♯	D♯	E	F♯	G♯	A♯	B	C♯"
+    },
+    {
+      "name": "C♯ Phrygian",
+      "notes": "C♯	D	E	F♯	G♯	A	B	C♯"
+    },
+    {
+      "name": "C♯ Lydian",
+      "notes": "C♯	D♯	E♯	F♯♯	G♯	A♯	B♯	C♯"
+    },
+    {
+      "name": "C♯ Mixolydian",
+      "notes": "C♯	D♯	E♯	F♯	G♯	A♯	B	C♯"
+    },
+    {
+      "name": "C♯ Aeolian",
+      "notes": "C♯	D♯	E	F♯	G♯	A	B	C♯"
+    },
+    {
+      "name": "C♯ Locrian",
+      "notes": "C♯	D	E	F♯	G	A	B	C♯"
+    },
+    {
+      "name": "D♭ Ionian",
+      "notes": "D♭	E♭	F	G♭	A♭	B♭	C	D♭"
+    },
+    {
+      "name": "D♭ Dorian",
+      "notes": "D♭	E♭	F♭	G♭	A♭	B♭	C♭	D♭"
+    },
+    {
+      "name": "D♭ Phrygian",
+      "notes": "D♭	E♭♭	F♭	G♭	A♭	B♭♭	C♭	D♭"
+    },
+    {
+      "name": "D♭ Lydian",
+      "notes": "D♭	E♭	F	G	A♭	B♭	C	D♭"
+    },
+    {
+      "name": "D♭ Mixolydian",
+      "notes": "D♭	E♭	F	G♭	A♭	B♭	C	D♭"
+    },
+    {
+      "name": "D♭ Aeolian",
+      "notes": "D♭	E♭	F♭	G♭	A♭	B♭♭	C♭	D♭"
+    },
+    {
+      "name": "D♭ Locrian",
+      "notes": "D♭	E♭♭	F	G	A♭♭	B♭♭	C♭	D♭"
+    },
+    {
+      "name": "D Ionian",
+      "notes": "D	E	F♯ 	G	A	B	C♯	D"
+    },
+    {
+      "name": "D Dorian",
+      "notes": "D	E	F	G	A	B	C	D"
+    },
+    {
+      "name": "D Phrygian",
+      "notes": "D	E♭	F	G	A	B♭	C	D"
+    },
+    {
+      "name": "D Lydian",
+      "notes": "D	E	F♯ 	G♯	A	B	C♯	D"
+    },
+    {
+      "name": "D Mixolydian",
+      "notes": "D	E	F♯ 	G	A	B	C	D"
+    },
+    {
+      "name": "D Aeolian",
+      "notes": "D	E	F	G	A	B♭	C	D"
+    },
+    {
+      "name": "D Locrian",
+      "notes": "D	E♭	F	G	A♭	B♭	C♯	D"
+    },
+    {
+      "name": "D♯ Ionian",
+      "notes": "D♯	E♯	F♯♯	G♯	A♯	B♯	C♯♯	D♯"
+    },
+    {
+      "name": "D♯ Dorian",
+      "notes": "D♯	E♯	F♯	G♯	A♯	B♯	C♯	D♯"
+    },
+    {
+      "name": "D♯ Phrygian",
+      "notes": "D♯	E	F♯	G♯	A♯	B	C♯	D♯"
+    },
+    {
+      "name": "D♯ Lydian",
+      "notes": "D♯	E♯	F♯♯	G♯♯	A♯	B♯	C♯♯	D♯"
+    },
+    {
+      "name": "D♯ Mixolydian",
+      "notes": "D♯	E♯	F♯♯	G♯	A♯	B♯	C♯	D♯"
+    },
+    {
+      "name": "D♯ Aeolian",
+      "notes": "D♯	E♯	F♯	G♯	A♯	B	C♯	D♯"
+    },
+    {
+      "name": "D♯ Locrian",
+      "notes": "D♯	E	F♯	G♯	A	B	C♯	D♯"
+    },
+    {
+      "name": "E♭ Ionian",
+      "notes": "E♭	F	G	A♭	B♭	C	D	E♭"
+    },
+    {
+      "name": "E♭ Dorian",
+      "notes": "E♭	F	G♭	A♭	B♭	C	D♭	E♭"
+    },
+    {
+      "name": "E♭ Phrygian",
+      "notes": "E♭	F♭	G♭	A♭	B♭	C♭	D♭	E♭"
+    },
+    {
+      "name": "E♭ Lydian",
+      "notes": "E♭	F	G	A	B♭	C	D	E♭"
+    },
+    {
+      "name": "E♭ Mixolydian",
+      "notes": "E♭	F	G	A♭	B♭	C	D♭	E♭"
+    },
+    {
+      "name": "E♭ Aeolian",
+      "notes": "E♭	F	G♭	A♭	B♭	C♭	D♭	E♭"
+    },
+    {
+      "name": "E♭ Locrian",
+      "notes": "E♭	F♭	G♭	A♭	B♭♭	C♭	D♭	E♭"
+    },
+    {
+      "name": "E Ionian",
+      "notes": "E	F♯	G♯	A	B	C♯	D♯	E"
+    },
+    {
+      "name": "E Dorian",
+      "notes": "E	F♯	G	A	B	C♯	D	E"
+    },
+    {
+      "name": "E Phrygian",
+      "notes": "E	F	G	A	B	C	D	E"
+    },
+    {
+      "name": "E Lydian",
+      "notes": "E	F♯	G♯	A♯	B	C♯	D♯	E"
+    },
+    {
+      "name": "E Mixolydian",
+      "notes": "E	F♯	G♯	A	B	C♯	D	E"
+    },
+    {
+      "name": "E Aeolian",
+      "notes": "E	F♯	G	A	B	C	D	E"
+    },
+    {
+      "name": "E Locrian",
+      "notes": "E	F	G	A	B♭	C	D	E"
+    },
+    {
+      "name": "F Ionian",
+      "notes": "F	G	A	B♭	C	D	E	F"
+    },
+    {
+      "name": "F Dorian",
+      "notes": "F	G	A♭	B♭	C	D	E♭	F"
+    },
+    {
+      "name": "F Phrygian",
+      "notes": "F	G♭	A♭	B♭	C	D♭	E♭	F"
+    },
+    {
+      "name": "F Lydian",
+      "notes": "F	G	A	B	C	D	E	F"
+    },
+    {
+      "name": "F Mixolydian",
+      "notes": "F	G	A	B♭	C	D	E♭	F"
+    },
+    {
+      "name": "F Aeolian",
+      "notes": "F	G	A♭	B♭	C	D♭	E♭	F"
+    },
+    {
+      "name": "F Locrian",
+      "notes": "F	G♭	A♭	B♭	C♭	D♭	E♭	F"
+    },
+    {
+      "name": "F♯ Ionian",
+      "notes": "F♯	G♯	A♯	B	C♯	D♯	E♯	F♯"
+    },
+    {
+      "name": "F♯ Dorian",
+      "notes": "F♯	G♯	A	B	C♯	D♯	E	F♯"
+    },
+    {
+      "name": "F♯ Phrygian",
+      "notes": "F♯	G	A	B	C♯	D	E	F♯"
+    },
+    {
+      "name": "F♯ Lydian",
+      "notes": "F♯	G♯	A♯	B♯	C♯	D♯	E♯	F♯"
+    },
+    {
+      "name": "F♯ Mixolydian",
+      "notes": "F♯	G♯	A♯	B	C♯	D♯	E	F♯"
+    },
+    {
+      "name": "F♯ Aeolian",
+      "notes": "F♯	G♯	A	B	C♯	D	E	F♯"
+    },
+    {
+      "name": "F♯ Locrian",
+      "notes": "F♯	G	A♯	B	C	D	E	F♯"
+    },
+    {
+      "name": "G♭ Ionian",
+      "notes": "G♭	A♭	B♭	C♭	D♭	E♭	F	G♭"
+    },
+    {
+      "name": "G♭ Dorian",
+      "notes": "G♭	A♭	B♭♭	C♭	D♭	E♭	F♭	G♭"
+    },
+    {
+      "name": "G♭ Phrygian",
+      "notes": "G♭	A♭♭	B♭♭	C♭	D♭	E♭♭	F♭	G♭"
+    },
+    {
+      "name": "G♭ Lydian",
+      "notes": "G♭	A♭	B♭	C	D♭	E♭	F	G♭"
+    },
+    {
+      "name": "G♭ Mixolydian",
+      "notes": "G♭	A♭	B♭	C♭	D♭	E♭	F♭	G♭"
+    },
+    {
+      "name": "G♭ Aeolian",
+      "notes": "G♭	A♭	B♭♭	C♭	D♭	E♭♭	F♭	G♭"
+    },
+    {
+      "name": "G♭ Locrian",
+      "notes": "G♭	A♭♭	B♭♭	C♭	D♭♭	E♭♭	F♭	G♭"
+    },
+    {
+      "name": "G Ionian",
+      "notes": "G	A	B	C	D	E	F♯	G"
+    },
+    {
+      "name": "G Dorian",
+      "notes": "G	A	B♭	C	D	E	F	G"
+    },
+    {
+      "name": "G Phrygian",
+      "notes": "G	A♭	B♭	C	D	E♭	F	G"
+    },
+    {
+      "name": "G Lydian",
+      "notes": "G	A	B	C♯	D	E	F♯	G"
+    },
+    {
+      "name": "G Mixolydian",
+      "notes": "G	A	B	C	D	E	F	G"
+    },
+    {
+      "name": "G Aeolian",
+      "notes": "G	A	B♭	C	D	E♭	F	G"
+    },
+    {
+      "name": "G Locrian",
+      "notes": "G	A♭	B♭	C	D♭	E♭	F	G"
+    },
+    {
+      "name": "G♯ Ionian",
+      "notes": "G♯	A♯	B♯	C♯	D♯	E♯	F♯♯	G♯"
+    },
+    {
+      "name": "G♯ Dorian",
+      "notes": "G♯	A♯	B	C♯	D♯	E♯	F♯	G♯"
+    },
+    {
+      "name": "G♯ Phrygian",
+      "notes": "G♯	A	B	C♯	D♯	E	F♯	G♯"
+    },
+    {
+      "name": "G♯ Lydian",
+      "notes": "G♯	A♯	B♯	C♯♯	D♯	E♯	F♯♯	G♯"
+    },
+    {
+      "name": "G♯ Mixolydian",
+      "notes": "G♯	A♯	B♯	C♯	D♯	E♯	F♯	G♯"
+    },
+    {
+      "name": "G♯ Aeolian",
+      "notes": "G♯	A♯	B	C♯	D♯	E	F♯	G♯"
+    },
+    {
+      "name": "G♯ Locrian",
+      "notes": "G♯	A	B	C♯	D	E	F♯	G♯"
+    },
+    {
+      "name": "A♭ Ionian",
+      "notes": "A♭	B♭	C	D♭	E♭	F	G	A♭"
+    },
+    {
+      "name": "A♭ Dorian",
+      "notes": "A♭	B♭	C♭	D♭	E♭	F	G♭	A♭"
+    },
+    {
+      "name": "A♭ Phrygian",
+      "notes": "A♭	B♭♭	C♭	D♭	E♭	F♭	G♭	A♭"
+    },
+    {
+      "name": "A♭ Lydian",
+      "notes": "A♭	B♭	C	D	E♭	F	G	A♭"
+    },
+    {
+      "name": "A♭ Mixolydian",
+      "notes": "A♭	B♭	C	D♭	E♭	F	G♭	A♭"
+    },
+    {
+      "name": "A♭ Aeolian",
+      "notes": "A♭	B♭	C♭	D♭	E♭	F♭	G♭	A♭"
+    },
+    {
+      "name": "A♭ Locrian",
+      "notes": "A♭	B♭♭	C♭	D♭	E♭♭	F♭	G♭	A♭"
+    },
+    {
+      "name": "A Ionian",
+      "notes": "A	B	C♯	D	E	F♯	G♯	A"
+    },
+    {
+      "name": "A Dorian",
+      "notes": "A	B	C	D	E	F♯	G	A"
+    },
+    {
+      "name": "A Phrygian",
+      "notes": "A	B♭	C	D	E	F	G	A"
+    },
+    {
+      "name": "A Lydian",
+      "notes": "A	B	C♯	D♯	E	F♯	G♯	A"
+    },
+    {
+      "name": "A Mixolydian",
+      "notes": "A	B	C♯	D	E	F♯	G	A"
+    },
+    {
+      "name": "A Aeolian",
+      "notes": "A	B	C	D	E	F	G	A"
+    },
+    {
+      "name": "A Locrian",
+      "notes": "A	B♭	C	D	E♭	F	G	A"
+    },
+    {
+      "name": "A♯ Ionia",
+      "notes": "A♯	B♯	C♯♯	D♯	E♯	F♯♯	G♯♯	A♯"
+    },
+    {
+      "name": "A♯ Dorian",
+      "notes": "A♯	B♯	C♯	D♯	E♯	F♯♯	G♯	A♯"
+    },
+    {
+      "name": "A♯ Phrygian",
+      "notes": "A♯	B♯	C♯	D♯	E♯	F♯♯	G♯	A♯"
+    },
+    {
+      "name": "A♯ Lydia",
+      "notes": "A♯	B♯	C♯♯	D♯♯	E♯	F♯♯	G♯♯	A♯"
+    },
+    {
+      "name": "A♯ Mixolydian",
+      "notes": "A♯	B♯	C♯♯	D♯	E♯	F♯♯	G♯	A♯"
+    },
+    {
+      "name": "A♯ Aeolian",
+      "notes": "A♯	B♯	C♯	D♯	E♯	F♯	G♯	A♯"
+    },
+    {
+      "name": "A♯ Locrian",
+      "notes": "A♯	B♯	C♯	D♯	E♯	F♯	G♯	A♯"
+    },
+    {
+      "name": "B♭ Ionian",
+      "notes": "B♭	C	D	E♭	F	G	A	B♭"
+    },
+    {
+      "name": "B♭ Dorian",
+      "notes": "B♭	C	D♭	E♭	F	G	A♭	B♭"
+    },
+    {
+      "name": "B♭ Phrygian",
+      "notes": "B♭	C♭	D♭	E♭	F	G♭	A♭	B♭"
+    },
+    {
+      "name": "B♭ Lydian",
+      "notes": "B♭	C	D	E	F	G	A	B♭"
+    },
+    {
+      "name": "B♭ Mixolydian",
+      "notes": "B♭	C	D	E♭	F	G	A♭	B♭"
+    },
+    {
+      "name": "B♭ Aeolian",
+      "notes": "B♭	C	D♭	E♭	F	G♭	A♭	B♭"
+    },
+    {
+      "name": "B♭ Locrian",
+      "notes": "B♭	C♭	D♭	E♭	F♭	G♭	A♭	B♭"
+    },
+    {
+      "name": "B Ionian",
+      "notes": "B	C♯	D♯	E	F♯	G♯	A♯	B"
+    },
+    {
+      "name": "B Dorian",
+      "notes": "B	C♯	D	E	F♯	G♯	A	B"
+    },
+    {
+      "name": "B Phrygian",
+      "notes": "B	C	D	E	F♯	G	A	B"
+    },
+    {
+      "name": "B Lydian",
+      "notes": "B	C♯	D♯	E♯	F♯	G♯	A♯	B"
+    },
+    {
+      "name": "B Mixolydian",
+      "notes": "B	C♯	D♯	E	F♯	G♯	A	B"
+    },
+    {
+      "name": "B Aeolian",
+      "notes": "B	C♯	D♯	E	F♯	G♯	A	B"
+    },
+    {
+      "name": "B Locrian",
+      "notes": "B	C	D	E	F	G	A	B"
+    },
+
+  ]
+}
+
 const Home = ({ data }) => {
   return (
     <>
@@ -56,567 +542,19 @@ const Home = ({ data }) => {
       <Layout>
         <Hero>
           <TextHome>
-          <h1>Root Note</h1>
-          <div class="toc">
-            <a class="key" href="#c">C</a>
-            <a class="key" href="#c-sharp">C♯</a>
-            <a class="key" href="#d-flat">D♭</a>
-            <a class="key" href="#d">D</a>
-            <a class="key" href="#d-sharp">D♯</a>
-            <a class="key" href="#e-flat">E♭</a>
-            <a class="key" href="#e">E</a>
-            <a class="key" href="#f">F</a>
-            <a class="key" href="#f-sharp">F♯</a>
-            <a class="key" href="#g-flat">G♭</a>
-            <a class="key" href="#g">G</a>
-            <a class="key" href="#g-sharp">G♯</a>
-            <a class="key" href="#a-flat">A♭</a>
-            <a class="key" href="#a">A</a>
-            <a class="key" href="#a-sharp">A♯</a>
-            <a class="key" href="#b-flat">B♭</a>
-            <a class="key" href="#b">B</a>
-          </div>
-
-          <h3 id="c">C Ionian</h3>
-          <p>
-          C	D	E	F	G	A	B	C
-          </p>
-          <h3>C Dorian</h3>
-          <p>
-          C	D	E♭	F	G	A	B♭	C
-          </p>
-          <h3>C Phrygian</h3>
-          <p>
-          C	D♭	E♭	F	G	A♭	B♭	C
-          </p>
-          <h3>C Lydian</h3>
-          <p>
-          C	D	E	F♯	G	A	B	C
-          </p>
-          <h3>C Mixolydian</h3>
-          <p>
-          C	D	E	F	G	A	B♭	C
-          </p>
-          <h3>C Aeolian</h3>
-          <p>
-          C	D	E♭	F	G	A♭	B♭	C
-          </p>
-          <h3>C Locrian</h3>
-          <p>
-          C	D♭	E♭	F	G♭	A♭	B♭	C
-          </p>
-
-          <hr></hr>
-
-          <h3 id="c-sharp">C♯ Ionian</h3>
-          <p>
-          C♯	D♯	E♯	F♯	G♯	A♯	B♯	C♯
-          </p>
-          <h3>C♯ Dorian</h3>
-          <p>
-          C♯	D♯	E	F♯	G♯	A♯	B	C♯
-          </p>
-          <h3>C♯ Phrygian</h3>
-          <p>
-          C♯	D	E	F♯	G♯	A	B	C♯
-          </p>
-          <h3>C♯ Lydian</h3>
-          <p>
-          C♯	D♯	E♯	F♯♯	G♯	A♯	B♯	C♯
-          </p>
-          <h3>C♯ Mixolydian</h3>
-          <p>
-          C♯	D♯	E♯	F♯	G♯	A♯	B	C♯
-          </p>
-          <h3>C♯ Aeolian</h3>
-          <p>
-          C♯	D♯	E	F♯	G♯	A	B	C♯
-          </p>
-          <h3>C♯ Locrian</h3>
-          <p>
-          C♯	D	E	F♯	G	A	B	C♯
-          </p>
-
-          <hr></hr>
-
-
-          <h3 id="d-flat">D♭ Ionian</h3>
-          <p>
-          D♭	E♭	F	G♭	A♭	B♭	C	D♭
-          </p>
-          <h3>D♭ Dorian</h3>
-          <p>
-          D♭	E♭	F♭	G♭	A♭	B♭	C♭	D♭
-          </p>
-          <h3>D♭ Phrygian</h3>
-          <p>
-          D♭	E♭♭	F♭	G♭	A♭	B♭♭	C♭	D♭
-          </p>
-          <h3>D♭ Lydian</h3>
-          <p>
-          D♭	E♭	F	G	A♭	B♭	C	D♭
-          </p>
-          <h3>D♭ Mixolydian</h3>
-          <p>
-          D♭	E♭	F	G♭	A♭	B♭	C	D♭
-          </p>
-          <h3>D♭ Aeolian</h3>
-          <p>
-          D♭	E♭	F♭	G♭	A♭	B♭♭	C♭	D♭
-          </p>
-          <h3>D♭ Locrian</h3>
-          <p>
-          D♭	E♭♭	F	G	A♭♭	B♭♭	C♭	D♭
-          </p>
-
-          <hr></hr>
-
-
-          <h3 id="d">D Ionian</h3>
-          <p>
-          D	E	F♯ 	G	A	B	C♯	D
-          </p>
-          <h3>D Dorian</h3>
-          <p>
-          D	E	F	G	A	B	C	D
-          </p>
-          <h3>D Phrygian</h3>
-          <p>
-          D	E♭	F	G	A	B♭	C	D
-          </p>
-          <h3>D Lydian</h3>
-          <p>
-          D	E	F♯ 	G♯	A	B	C♯	D
-          </p>
-          <h3>D Mixolydian</h3>
-          <p>
-          D	E	F♯ 	G	A	B	C	D
-          </p>
-          <h3>D Aeolian</h3>
-          <p>
-          D	E	F	G	A	B♭	C	D
-          </p>
-          <h3>D Locrian</h3>
-          <p>
-          D	E♭	F	G	A♭	B♭	C♯	D
-          </p>
-
-          <hr></hr>
-
-
-          <h3 id="d-sharp">D♯ Ionian</h3>
-          <p>
-          D♯	E♯	F♯♯	G♯	A♯	B♯	C♯♯	D♯
-          </p>
-          <h3>D♯ Dorian</h3>
-          <p>
-          D♯	E♯	F♯	G♯	A♯	B♯	C♯	D♯
-          </p>
-          <h3>D♯ Phrygian</h3>
-          <p>
-          D♯	E	F♯	G♯	A♯	B	C♯	D♯
-          </p>
-          <h3>D♯ Lydian</h3>
-          <p>
-          D♯	E♯	F♯♯	G♯♯	A♯	B♯	C♯♯	D♯
-          </p>
-          <h3>D♯ Mixolydian</h3>
-          <p>
-          D♯	E♯	F♯♯	G♯	A♯	B♯	C♯	D♯
-          </p>
-          <h3>D♯ Aeolian</h3>
-          <p>
-          D♯	E♯	F♯	G♯	A♯	B	C♯	D♯
-          </p>
-          <h3>D♯ Locrian</h3>
-          <p>
-          D♯	E	F♯	G♯	A	B	C♯	D♯
-          </p>
-
-          <hr></hr>
-
-
-          <h3 id="e-flat">E♭ Ionian</h3>
-          <p>
-          E♭	F	G	A♭	B♭	C	D	E♭
-          </p>
-          <h3>E♭ Dorian</h3>
-          <p>
-          E♭	F	G♭	A♭	B♭	C	D♭	E♭
-          </p>
-          <h3>E♭ Phrygian</h3>
-          <p>
-          E♭	F♭	G♭	A♭	B♭	C♭	D♭	E♭
-          </p>
-          <h3>E♭ Lydian</h3>
-          <p>
-          E♭	F	G	A	B♭	C	D	E♭
-          </p>
-          <h3>E♭ Mixolydian</h3>
-          <p>
-          E♭	F	G	A♭	B♭	C	D♭	E♭
-          </p>
-          <h3>E♭ Aeolian</h3>
-          <p>
-          E♭	F	G♭	A♭	B♭	C♭	D♭	E♭
-          </p>
-          <h3>E♭ Locrian</h3>
-          <p>
-          E♭	F♭	G♭	A♭	B♭♭	C♭	D♭	E♭
-          </p>
-
-          <hr></hr>
-
-
-          <h3 id="e">E Ionian</h3>
-          <p>
-          E	F♯	G♯	A	B	C♯	D♯	E
-          </p>
-          <h3>E Dorian</h3>
-          <p>
-          E	F♯	G	A	B	C♯	D	E
-          </p>
-          <h3>E Phrygian</h3>
-          <p>
-          E	F	G	A	B	C	D	E
-          </p>
-          <h3>E Lydian</h3>
-          <p>
-          E	F♯	G♯	A♯	B	C♯	D♯	E
-          </p>
-          <h3>E Mixolydian</h3>
-          <p>
-          E	F♯	G♯	A	B	C♯	D	E
-          </p>
-          <h3>E Aeolian</h3>
-          <p>
-          E	F♯	G	A	B	C	D	E
-          </p>
-          <h3>E Locrian</h3>
-          <p>
-          E	F	G	A	B♭	C	D	E
-          </p>
-
-          <hr></hr>
-
-
-          <h3 id="f">F Ionian</h3>
-          <p>
-          F	G	A	B♭	C	D	E	F
-          </p>
-          <h3>F Dorian</h3>
-          <p>
-          F	G	A♭	B♭	C	D	E♭	F
-          </p>
-          <h3>F Phrygian</h3>
-          <p>
-          F	G♭	A♭	B♭	C	D♭	E♭	F
-          </p>
-          <h3>F Lydian</h3>
-          <p>
-          F	G	A	B	C	D	E	F
-          </p>
-          <h3>F Mixolydian</h3>
-          <p>
-          F	G	A	B♭	C	D	E♭	F
-          </p>
-          <h3>F Aeolian</h3>
-          <p>
-          F	G	A♭	B♭	C	D♭	E♭	F
-          </p>
-          <h3>F Locrian</h3>
-          <p>
-          F	G♭	A♭	B♭	C♭	D♭	E♭	F
-          </p>
-
-          <hr></hr>
-
-
-          <h3 id="f-sharp">F♯ Ionian</h3>
-          <p>
-          F♯	G♯	A♯	B	C♯	D♯	E♯	F♯
-          </p>
-          <h3>F♯ Dorian</h3>
-          <p>
-          F♯	G♯	A	B	C♯	D♯	E	F♯
-          </p>
-          <h3>F♯ Phrygian</h3>
-          <p>
-          F♯	G	A	B	C♯	D	E	F♯
-          </p>
-          <h3>F♯ Lydian</h3>
-          <p>
-          F♯	G♯	A♯	B♯	C♯	D♯	E♯	F♯
-          </p>
-          <h3>F♯ Mixolydian</h3>
-          <p>
-          F♯	G♯	A♯	B	C♯	D♯	E	F♯
-          </p>
-          <h3>F♯ Aeolian</h3>
-          <p>
-          F♯	G♯	A	B	C♯	D	E	F♯
-          </p>
-          <h3>F♯ Locrian</h3>
-          <p>
-          F♯	G	A♯	B	C	D	E	F♯
-          </p>
-
-          <hr></hr>
-
-
-          <h3 id="g-flat">G♭ Ionian</h3>
-          <p>
-          G♭	A♭	B♭	C♭	D♭	E♭	F	G♭
-          </p>
-          <h3>G♭ Dorian</h3>
-          <p>
-          G♭	A♭	B♭♭	C♭	D♭	E♭	F♭	G♭
-          </p>
-          <h3>G♭ Phrygian</h3>
-          <p>
-          G♭	A♭♭	B♭♭	C♭	D♭	E♭♭	F♭	G♭
-          </p>
-          <h3>G♭ Lydian</h3>
-          <p>
-          G♭	A♭	B♭	C	D♭	E♭	F	G♭
-          </p>
-          <h3>G♭ Mixolydian</h3>
-          <p>
-          G♭	A♭	B♭	C♭	D♭	E♭	F♭	G♭
-          </p>
-          <h3>G♭ Aeolian</h3>
-          <p>
-          G♭	A♭	B♭♭	C♭	D♭	E♭♭	F♭	G♭
-          </p>
-          <h3>G♭ Locrian</h3>
-          <p>
-          G♭	A♭♭	B♭♭	C♭	D♭♭	E♭♭	F♭	G♭
-          </p>
-
-          <hr></hr>
-
-
-          <h3 id="g">G Ionian</h3>
-          <p>
-          G	A	B	C	D	E	F♯	G
-          </p>
-          <h3>G Dorian</h3>
-          <p>
-          G	A	B♭	C	D	E	F	G
-          </p>
-          <h3>G Phrygian</h3>
-          <p>
-          G	A♭	B♭	C	D	E♭	F	G
-          </p>
-          <h3>G Lydian</h3>
-          <p>
-          G	A	B	C♯	D	E	F♯	G
-          </p>
-          <h3>G Mixolydian</h3>
-          <p>
-          G	A	B	C	D	E	F	G
-          </p>
-          <h3>G Aeolian</h3>
-          <p>
-          G	A	B♭	C	D	E♭	F	G
-          </p>
-          <h3>G Locrian</h3>
-          <p>
-          G	A♭	B♭	C	D♭	E♭	F	G
-          </p>
-
-          <hr></hr>
-
-
-          <h3 id="g-sharp">G♯ Ionian</h3>
-          <p>
-          G♯	A♯	B♯	C♯	D♯	E♯	F♯♯	G♯
-          </p>
-          <h3>G♯ Dorian</h3>
-          <p>
-          G♯	A♯	B	C♯	D♯	E♯	F♯	G♯
-          </p>
-          <h3>G♯ Phrygian</h3>
-          <p>
-          G♯	A	B	C♯	D♯	E	F♯	G♯
-          </p>
-          <h3>G♯ Lydian</h3>
-          <p>
-          G♯	A♯	B♯	C♯♯	D♯	E♯	F♯♯	G♯
-          </p>
-          <h3>G♯ Mixolydian</h3>
-          <p>
-          G♯	A♯	B♯	C♯	D♯	E♯	F♯	G♯
-          </p>
-          <h3>G♯ Aeolian</h3>
-          <p>
-          G♯	A♯	B	C♯	D♯	E	F♯	G♯
-          </p>
-          <h3>G♯ Locrian</h3>
-          <p>
-          G♯	A	B	C♯	D	E	F♯	G♯
-          </p>
-
-          <hr></hr>
-
-
-          <h3 id="a-flat">A♭ Ionian</h3>
-          <p>
-          A♭	B♭	C	D♭	E♭	F	G	A♭
-          </p>
-          <h3>A♭ Dorian</h3>
-          <p>
-          A♭	B♭	C♭	D♭	E♭	F	G♭	A♭
-          </p>
-          <h3>A♭ Phrygian</h3>
-          <p>
-          A♭	B♭♭	C♭	D♭	E♭	F♭	G♭	A♭
-          </p>
-          <h3>A♭ Lydian</h3>
-          <p>
-          A♭	B♭	C	D	E♭	F	G	A♭
-          </p>
-          <h3>A♭ Mixolydian</h3>
-          <p>
-          A♭	B♭	C	D♭	E♭	F	G♭	A♭
-          </p>
-          <h3>A♭ Aeolian</h3>
-          <p>
-          A♭	B♭	C♭	D♭	E♭	F♭	G♭	A♭
-          </p>
-          <h3>A♭ Locrian</h3>
-          <p>
-          A♭	B♭♭	C♭	D♭	E♭♭	F♭	G♭	A♭
-          </p>
-
-          <hr></hr>
-
-
-          <h3 id="a">A Ionian</h3>
-          <p>
-          A	B	C♯	D	E	F♯	G♯	A
-          </p>
-          <h3>A Dorian</h3>
-          <p>
-          A	B	C	D	E	F♯	G	A
-          </p>
-          <h3>A Phrygian</h3>
-          <p>
-          A	B♭	C	D	E	F	G	A
-          </p>
-          <h3>A Lydian</h3>
-          <p>
-          A	B	C♯	D♯	E	F♯	G♯	A
-          </p>
-          <h3>A Mixolydian</h3>
-          <p>
-          A	B	C♯	D	E	F♯	G	A
-          </p>
-          <h3>A Aeolian</h3>
-          <p>
-          A	B	C	D	E	F	G	A
-          </p>
-          <h3>A Locrian</h3>
-          <p>
-          A	B♭	C	D	E♭	F	G	A
-          </p>
-
-          <hr></hr>
-
-
-          <h3 id="a-sharp">A♯ Ionian</h3>
-          <p>
-          A♯	B♯	C♯♯	D♯	E♯	F♯♯	G♯♯	A♯
-          </p>
-          <h3>A♯ Dorian</h3>
-          <p>
-          A♯	B♯	C♯	D♯	E♯	F♯♯	G♯	A♯
-          </p>
-          <h3>A♯ Phrygian</h3>
-          <p>
-          A♯	B♯	C♯	D♯	E♯	F♯♯	G♯	A♯
-          </p>
-          <h3>A♯ Lydian</h3>
-          <p>
-          A♯	B♯	C♯♯	D♯♯	E♯	F♯♯	G♯♯	A♯
-          </p>
-          <h3>A♯ Mixolydian</h3>
-          <p>
-          A♯	B♯	C♯♯	D♯	E♯	F♯♯	G♯	A♯
-          </p>
-          <h3>A♯ Aeolian</h3>
-          <p>
-          A♯	B♯	C♯	D♯	E♯	F♯	G♯	A♯
-          </p>
-          <h3>A♯ Locrian</h3>
-          <p>
-          A♯	B♯	C♯	D♯	E♯	F♯	G♯	A♯
-          </p>
-
-          <hr></hr>
-
-
-          <h3 id="b-flat">B♭ Ionian</h3>
-          <p>
-          B♭	C	D	E♭	F	G	A	B♭
-          </p>
-          <h3>B♭ Dorian</h3>
-          <p>
-          B♭	C	D♭	E♭	F	G	A♭	B♭
-          </p>
-          <h3>B♭ Phrygian</h3>
-          <p>
-          B♭	C♭	D♭	E♭	F	G♭	A♭	B♭
-          </p>
-          <h3>B♭ Lydian</h3>
-          <p>
-          B♭	C	D	E	F	G	A	B♭
-          </p>
-          <h3>B♭ Mixolydian</h3>
-          <p>
-          B♭	C	D	E♭	F	G	A♭	B♭
-          </p>
-          <h3>B♭ Aeolian</h3>
-          <p>
-          B♭	C	D♭	E♭	F	G♭	A♭	B♭
-          </p>
-          <h3>B♭ Locrian</h3>
-          <p>
-          B♭	C♭	D♭	E♭	F♭	G♭	A♭	B♭
-          </p>
-
-          <hr></hr>
-
-
-          <h3 id="b">B Ionian</h3>
-          <p>
-          B	C♯	D♯	E	F♯	G♯	A♯	B
-          </p>
-          <h3>B Dorian</h3>
-          <p>
-          B	C♯	D	E	F♯	G♯	A	B
-          </p>
-          <h3>B Phrygian</h3>
-          <p>
-          B	C	D	E	F♯	G	A	B
-          </p>
-          <h3>B Lydian</h3>
-          <p>
-          B	C♯	D♯	E♯	F♯	G♯	A♯	B
-          </p>
-          <h3>B Mixolydian</h3>
-          <p>
-          B	C♯	D♯	E	F♯	G♯	A	B
-          </p>
-          <h3>B Aeolian</h3>
-          <p>
-          B	C♯	D♯	E	F♯	G♯	A	B
-          </p>
-          <h3>B Locrian</h3>
-          <p>
-          B	C	D	E	F	G	A	B
-          </p>
-
+          {scales.modes.map(
+            (scale) =>
+              (
+                <>
+                  <h4>{scale.name}</h4>
+                  <div className="flex">
+                    <p className="note">{scale.notes}</p>
+                  </div>
+                  <hr></hr>
+                </>
+              )
+            )
+          }
           </TextHome>
         </Hero>
       </Layout>

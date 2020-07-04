@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Learn Scales`,
     description: `A website to help musicians learn their scales.`,
-    siteUrl: `https://learn-scales.now.sh`,
+    siteUrl: `https://learn-scales.josephdamiba.com/`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

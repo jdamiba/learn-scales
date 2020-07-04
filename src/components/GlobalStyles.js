@@ -32,8 +32,8 @@ export const GlobalStyles = createGlobalStyle`
   }
 
 
-  .toc{
-    width: 50%;
+  .flex{
+    width: 70%;
     display: flex;
     flex-wrap: wrap;
     margin: auto;

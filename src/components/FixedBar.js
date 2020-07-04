@@ -9,7 +9,6 @@ export const FixedBar = styled.header`
   height: 8vh;
   left: auto;
   padding: 0 var(--sides-padding-desktop);
-  position: fixed;
   right: auto;
   top: 0px;
   width: 100%;
