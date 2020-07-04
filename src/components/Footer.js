@@ -20,18 +20,11 @@ export const Footer = () => {
   return (
     <Container>
       <ButtonLink
-        href="https://mobile.twitter.com/lewislbr"
+        href="https://mobile.twitter.com/joedamiba"
         target="_blank"
         rel="noopener noreferrer"
       >
-        Twitter
-      </ButtonLink>
-      <ButtonLink
-        href="https://github.com/lewislbr/lewis-gatsby-starter-blog"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Github
+        Developed with ❤️ by Joe Damiba
       </ButtonLink>
     </Container>
   );

@@ -31,6 +31,19 @@ export const GlobalStyles = createGlobalStyle`
     src: url('${font.IBMPlexMono700}') format("woff2");
   }
 
+
+  .toc{
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: space-around;
+  }
+
+  .key{
+    margin: 20px;
+  }
+
   body {
     background-color: var(--light-color);
     color: var(--dark-color);
@@ -38,11 +51,11 @@ export const GlobalStyles = createGlobalStyle`
     font-size: 19px;
     font-weight: 400;
     height: 100%;
-    padding-top: 20vh;
+    padding-top: 2vh;
 
   @media (max-width: ${BREAKPOINT}px) {
       font-size: 17px;
-      padding-top: 15vh;
+      padding-top: 8vh;
     }
   }
 
@@ -51,6 +64,10 @@ export const GlobalStyles = createGlobalStyle`
     color: inherit;
     -webkit-tap-highlight-color: hsla(0, 0%, 0%, 0);
     -webkit-tap-highlight-color: transparent;
+  }
+
+  div a:hover {
+    text-decoration: underline;
   }
 
   /* CSS Reset */
